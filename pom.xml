@@ -2,21 +2,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>automation</artifactId>
+    <artifactId>automation-testing</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
+
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <sonar.projectKey>SQ-Assessment2</sonar.projectKey>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <sonar.projectKey>LoginAutomation</sonar.projectKey>
+         <sonar.login>sqp_bd4fab5a41e7a4a6b9fa51c32d434d4b2129869e</sonar.login>
         <sonar.host.url>http://localhost:9000</sonar.host.url>
         <sonar.sources>src/main/java</sonar.sources>
         <sonar.tests>src/test/java</sonar.tests>
         <sonar.java.binaries>target/classes</sonar.java.binaries>
         <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
-        <sonar.cpd.minTokens>1</sonar.cpd.minTokens>
-        <sonar.cpd.minLines>5</sonar.cpd.minLines>
+        <sonar.duplications.hashtable>200000</sonar.duplications.hashtable>
+        <sonar.duplications>always</sonar.duplications>
     </properties>
 
 
