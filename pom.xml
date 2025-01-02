@@ -15,7 +15,7 @@
         <sonar.tests>src/test/java</sonar.tests>
         <sonar.java.binaries>target/classes</sonar.java.binaries>
         <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
-        <sonar.cpd.minTokens>50</sonar.cpd.minTokens>
+        <sonar.cpd.minTokens>1</sonar.cpd.minTokens>
         <sonar.cpd.minLines>5</sonar.cpd.minLines>
     </properties>
 
