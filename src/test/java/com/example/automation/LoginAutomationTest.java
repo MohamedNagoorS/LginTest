@@ -21,10 +21,14 @@ public class LoginAutomationTest {
 
             // Perform login with valid credentials
             loginAutomation.login("tomsmith", "SuperSecretPassword!");
+            
 
             // Validate successful login
             String flashMessage = loginAutomation.getFlashMessage();
             assertTrue(flashMessage.contains("You logged into a secure area!"));
+            loginAutomation.login1("tomsmith", "SuperSecretPassword!");
+            assertTrue(flashMessage.contains("You logged into a secure area!"));
+            
         } finally {
             driver.quit();
         }
