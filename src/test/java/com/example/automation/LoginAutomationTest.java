@@ -26,7 +26,28 @@ public class LoginAutomationTest {
             // Validate successful login
             String flashMessage = loginAutomation.getFlashMessage();
             assertTrue(flashMessage.contains("You logged into a secure area!"));
+            
+        } finally {
+            driver.quit();
+        }
+    }
+    @Test
+    public void testSuccessfulLogin1() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        try {
+            LoginAutomation loginAutomation = new LoginAutomation(driver);
+
+            // Navigate to the login page
+            loginAutomation.navigateToLoginPage("https://the-internet.herokuapp.com/login");
+
+            // Perform login with valid credentials
             loginAutomation.login1("tomsmith", "SuperSecretPassword!");
+            
+
+            // Validate successful login
+            String flashMessage = loginAutomation.getFlashMessage();
             assertTrue(flashMessage.contains("You logged into a secure area!"));
             
         } finally {
