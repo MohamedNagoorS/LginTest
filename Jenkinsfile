@@ -6,7 +6,6 @@ pipeline {
     }
 
     environment {
-        MAVEN_PATH = 'C:\\Users\\surya\\Downloads\\apache-maven-3.9.9-bin\\apache-maven-3.9.9\\bin'
         SONAR_TOKEN = credentials('sonarqube-token')
     }
 
@@ -21,7 +20,6 @@ pipeline {
             steps {
                 echo 'Cleaning target directory...'
                 bat '''
-                set PATH=%MAVEN_PATH%;%PATH%
                 mvn clean
                 '''
             }
@@ -31,7 +29,6 @@ pipeline {
             steps {
                 echo 'Testing the project...'
                 bat '''
-                set PATH=%MAVEN_PATH%;%PATH%
                 mvn test
                 '''
             }
@@ -41,7 +38,6 @@ pipeline {
             steps {
                 echo 'Packaging the compiled code...'
                 bat '''
-                set PATH=%MAVEN_PATH%;%PATH%
                 mvn package
                 '''
             }
@@ -51,9 +47,8 @@ pipeline {
             steps {
                 echo 'Running SonarQube analysis...'
                 bat '''
-                set PATH=%MAVEN_PATH%;%PATH%
                 mvn sonar:sonar ^
-                  -Dsonar.projectKey=SQ-Assessment2 ^
+                  -Dsonar.projectKey=LoginAutomation ^
                   -Dsonar.sources=src/main/java ^
                   -Dsonar.tests=src/test/java ^
                   -Dsonar.java.binaries=target/classes ^
