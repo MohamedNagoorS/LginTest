@@ -1,15 +1,16 @@
 package com.example.automation;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LoginAutomationTest {
+class LoginAutomationTest {
 
     @Test
-    public void testSuccessfulLogin() {
+    void testSuccessfulLogin() {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
@@ -17,79 +18,10 @@ public class LoginAutomationTest {
             LoginAutomation loginAutomation = new LoginAutomation(driver);
 
             // Navigate to the login page
-            loginAutomation.navigateToLoginPage("https://the-internet.herokuapp.com/login");
+            loginAutomation.navigateToLoginPage("https://practicetestautomation.com/practice-test-login/");
 
             // Perform login with valid credentials
-            loginAutomation.login("tomsmith", "SuperSecretPassword!");
-            
-
-            // Validate successful login
-            String flashMessage = loginAutomation.getFlashMessage();
-            assertTrue(flashMessage.contains("You logged into a secure area!"));
-            
-        } finally {
-            driver.quit();
-        }
-    }
-    @Test
-    public void testSuccessfulLogin1() {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-
-        try {
-            LoginAutomation loginAutomation = new LoginAutomation(driver);
-
-            // Navigate to the login page
-            loginAutomation.navigateToLoginPage("https://the-internet.herokuapp.com/login");
-
-            // Perform login with valid credentials
-            loginAutomation.login1("tomsmith", "SuperSecretPassword!");
-            
-
-            // Validate successful login
-            String flashMessage = loginAutomation.getFlashMessage();
-            assertTrue(flashMessage.contains("You logged into a secure area!"));
-            
-        } finally {
-            driver.quit();
-        }
-    }
-     @Test
-    public void testSuccessfulLogin2() {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-
-        try {
-            LoginAutomation loginAutomation = new LoginAutomation(driver);
-
-            // Navigate to the login page
-            loginAutomation.navigateToLoginPage("https://the-internet.herokuapp.com/login");
-
-            // Perform login with valid credentials
-            loginAutomation.login2("tomsmith", "SuperSecretPassword!");
-            
-
-            // Validate successful login
-            String flashMessage = loginAutomation.getFlashMessage();
-            assertTrue(flashMessage.contains("You logged into a secure area!"));
-            
-        } finally {
-            driver.quit();
-        }
-    }
- @Test
-    public void testSuccessfulLogin3() {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-
-        try {
-            LoginAutomation loginAutomation = new LoginAutomation(driver);
-
-            // Navigate to the login page
-            loginAutomation.navigateToLoginPage("https://the-internet.herokuapp.com/login");
-
-            // Perform login with valid credentials
-            loginAutomation.login3("tomsmith", "SuperSecretPassword!");
+            loginAutomation.login("student", "Password123");
             
 
             // Validate successful login
@@ -103,7 +35,7 @@ public class LoginAutomationTest {
 
 
     @Test
-    public void testFailedLogin() {
+    void testFailedLogin() {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
@@ -111,7 +43,7 @@ public class LoginAutomationTest {
             LoginAutomation loginAutomation = new LoginAutomation(driver);
 
             // Navigate to the login page
-            loginAutomation.navigateToLoginPage("https://the-internet.herokuapp.com/login");
+            loginAutomation.navigateToLoginPage("https://practice.expandtesting.com/login");
 
             // Perform login with invalid credentials
             loginAutomation.login("invalidUser", "invalidPassword");
