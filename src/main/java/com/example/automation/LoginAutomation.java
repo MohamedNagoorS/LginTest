@@ -1,59 +1,40 @@
 package com.example.automation;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginAutomation {
+class LoginAutomation {
 
     private final WebDriver driver;
 
-    public LoginAutomation(WebDriver driver) {
+    LoginAutomation(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void navigateToLoginPage(String url) {
+    void navigateToLoginPage(String url) {
         driver.get(url);
     }
 
-    public void login(String username, String password) {
+    void login(String username, String password) {
         WebElement usernameField = driver.findElement(By.id("username"));
         WebElement passwordField = driver.findElement(By.id("password"));
-        WebElement loginButton = driver.findElement(By.cssSelector("button.radius"));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("submit")));
 
+
+        
         usernameField.sendKeys(username);
         passwordField.sendKeys(password);
-        loginButton.click();
+        
+        submitButton.click();
     }
-    public void login1(String username, String password) {
-        WebElement usernameField = driver.findElement(By.id("username"));
-        WebElement passwordField = driver.findElement(By.id("password"));
-        WebElement loginButton = driver.findElement(By.cssSelector("button.radius"));
-
-        usernameField.sendKeys(username);
-        passwordField.sendKeys(password);
-        loginButton.click();
-    }
-    public void login2(String username, String password) {
-        WebElement usernameField = driver.findElement(By.id("username"));
-        WebElement passwordField = driver.findElement(By.id("password"));
-        WebElement loginButton = driver.findElement(By.cssSelector("button.radius"));
-
-        usernameField.sendKeys(username);
-        passwordField.sendKeys(password);
-        loginButton.click();
-    }
-    public void login3(String username, String password) {
-        WebElement usernameField = driver.findElement(By.id("username"));
-        WebElement passwordField = driver.findElement(By.id("password"));
-        WebElement loginButton = driver.findElement(By.cssSelector("button.radius"));
-
-        usernameField.sendKeys(username);
-        passwordField.sendKeys(password);
-        loginButton.click();
-    }
-
-    public String getFlashMessage() {
+    
+    String getFlashMessage() {
         return driver.findElement(By.cssSelector(".flash")).getText();
     }
 }
