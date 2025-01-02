@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'sonarmaven'
+        maven 'sonar-maven'
     }
 
     environment {
