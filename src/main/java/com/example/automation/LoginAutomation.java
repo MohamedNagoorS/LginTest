@@ -21,12 +21,9 @@ class LoginAutomation {
     }
 
     void login(String username, String password) {
-        WebElement usernameField = driver.findElement(By.id("username"));
+               WebElement usernameField = driver.findElement(By.id("username"));
         WebElement passwordField = driver.findElement(By.id("password"));
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("submit")));
-
-
+        WebElement loginButton = driver.findElement(By.cssSelector("button.radius"));
         
         usernameField.sendKeys(username);
         passwordField.sendKeys(password);
