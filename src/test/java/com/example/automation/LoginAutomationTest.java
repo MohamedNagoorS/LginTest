@@ -15,19 +15,23 @@ class LoginAutomationTest {
         WebDriver driver = new ChromeDriver();
 
         try {
-            LoginAutomation loginAutomation = new LoginAutomation(driver);
-
             // Navigate to the login page
-            loginAutomation.navigateToLoginPage("https://practicetestautomation.com/practice-test-login/");
+            driver.get("https://the-internet.herokuapp.com/login");
 
-            // Perform login with valid credentials
-            loginAutomation.login("student", "Password123");
-            
+            // Locate the username and password fields
+            WebElement usernameField = driver.findElement(By.id("username"));
+            WebElement passwordField = driver.findElement(By.id("password"));
+            WebElement loginButton = driver.findElement(By.cssSelector("button.radius"));
 
-            // Validate successful login
-            String flashMessage = loginAutomation.getFlashMessage();
-            assertTrue(flashMessage.contains("You logged into a secure area!"));
-            
+            // Perform login with invalid credentials
+            usernameField.sendKeys("invalidUser");
+            passwordField.sendKeys("invalidPassword");
+            loginButton.click();
+
+            // Validate failed login
+            String expectedMessage = "Your username is invalid!";
+            String actualMessage = driver.findElement(By.cssSelector(".flash.error")).getText();
+            assertEquals(true, actualMessage.contains(expectedMessage));
         } finally {
             driver.quit();
         }
@@ -43,7 +47,7 @@ class LoginAutomationTest {
             LoginAutomation loginAutomation = new LoginAutomation(driver);
 
             // Navigate to the login page
-            loginAutomation.navigateToLoginPage("https://practice.expandtesting.com/login");
+           driver.get("https://the-internet.herokuapp.com/login");
 
             // Perform login with invalid credentials
             loginAutomation.login("invalidUser", "invalidPassword");
