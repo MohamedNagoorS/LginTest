@@ -48,7 +48,7 @@ pipeline {
                 echo 'Running SonarQube analysis...'
                 bat '''
                 mvn sonar:sonar ^
-                  -Dsonar.projectKey=LoginAutomation ^
+                  -Dsonar.projectKey=LoginAutomation1 ^
                   -Dsonar.sources=src/main/java ^
                   -Dsonar.tests=src/test/java ^
                   -Dsonar.java.binaries=target/classes ^
