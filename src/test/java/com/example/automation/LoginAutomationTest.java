@@ -6,10 +6,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LoginAutomationTest {
+class LoginAutomationTest {
 
     @Test
-    public void testSuccessfulLogin() {
+    void testSuccessfulLogin() {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
@@ -31,7 +31,7 @@ public class LoginAutomationTest {
     }
 
     @Test
-    public void testFailedLogin() {
+    void testFailedLogin() {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
