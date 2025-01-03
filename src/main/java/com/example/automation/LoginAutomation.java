@@ -28,7 +28,7 @@ class LoginAutomation {
         usernameField.sendKeys(username);
         passwordField.sendKeys(password);
         
-        submitButton.click();
+        loginButton.click();
     }
     
     String getFlashMessage() {
