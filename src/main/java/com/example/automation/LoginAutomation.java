@@ -32,6 +32,6 @@ class LoginAutomation {
     }
     
     String getFlashMessage() {
-        return driver.findElement(By.id("error")).getText();
+        return driver.findElement(By.cssSelector(".flash")).getText();
     }
 }
